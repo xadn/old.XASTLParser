@@ -18,12 +18,18 @@
     NSLog(@"hello world");
 
     XAStlTokenizer *tokenizer = [XAStlTokenizer alloc];
-    [tokenizer tokenize];
+
+    NSData *data = [NSData dataWithContentsOfFile:@"/Users/andy/code/StlParser/StlParser/slotted_disk.stl"];
+//    NSData *data = [NSData dataWithContentsOfFile:@"/Users/andy/code/StlParser/StlParser/flatirons.stl"];
     
-//    NSString *stl = [NSString
-//                     stringWithContentsOfFile:@"/Users/andy/code/StlParser/StlParser/slotted_disk.stl"
-//                     encoding:NSASCIIStringEncoding
-//                     error:NULL];
+    char *buff = "this is a test string";
+    char subbuff[5];
+    memcpy( subbuff, &buff[10], 4 );
+    subbuff[4] = '\0';
+    
+    [tokenizer tokenize:data];
+    
+// next up, use Lemon for parsing
 }
 
 @end

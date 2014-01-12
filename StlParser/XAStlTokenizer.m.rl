@@ -1,36 +1,50 @@
 %%{
  
-  machine simple_lexer;
-  
-  float       = ('+'|'-')?[0-9]+'.'[0-9]+;
-  solidmap    = 'solid map';
-  facetnormal = 'facet normal';
-  outerloop   = 'outer loop';
+  machine stl_lexer;
+
   vertex      = 'vertex';
-  identifier  = [a-zA-Z][a-zA-Z_]+; 
+  endsolid    = 'endsolid';
+  endfacet    = 'endfacet';
+  endloop     = 'endloop';
+  solid       = 'solid' ?[a-zA-Z][a-zA-Z_]*;
+  facet       = 'facet '[a-zA-Z][a-zA-Z_]*;
+  outerloop   = 'outer loop';
+  float       = ('+'|'-')?[0-9]+'.'[0-9]+('e'('+'|'-')[0-9]+)?;
   
   main := |*
+  
+    vertex => {
+        NSLog(@"vertex");
+    };
     
-    float => { 
-        printf("float");
+    endsolid => {
+        NSLog(@"endsolid");
     };
 
-    solidmap => {
-        printf("solidmap");
+    endfacet => {
+        NSLog(@"endfacet");
+    };
+    
+    endloop => {
+        NSLog(@"endloop");
     };
 
-    facetnormal => { 
-        printf("facetnormal");
+    solid => {
+        NSLog(@"solid");
+    };
+
+    facet => {
+        NSLog(@"facet");
     };
 
     outerloop => { 
-        printf("outerloop");
-    };
-
-    vertex => { 
-        printf("vertex");
+        NSLog(@"outerloop");
     };
     
+    float => {
+        NSLog(@"float");
+    };
+
     space;
     
   *|;
@@ -40,8 +54,9 @@
 %% write data;
 
 // %% Objective-C goes here
+// This file is used to generate XAStlTokenizer.m
 //
-//  XAStlTokenizer.m
+//  XAStlTokenizer.m.rl
 //  StlParser
 //
 //  Created by andy on 1/12/14.
@@ -52,9 +67,22 @@
 
 @implementation XAStlTokenizer
 
-- (void) tokenize
+- (void) tokenize:(NSData *)inData
 {
-    NSLog(@"tokenize!");
+    NSLog(@"STARTING TOKENIZATION!");
+
+    int   cs    = 0;                        // current state
+    char *p     = (char *)[inData bytes];   // data pointer
+    char *pe    = p + [inData length];      // data end pointer
+    char *eof   = pe;
+    char *ts    = 0;
+	char *te    = 0;
+    int   act   = 0;
+
+    %% write init;
+    %% write exec;
+    
+    NSLog(@"TOKENIZATION COMPLETE!");
 }
 
 @end

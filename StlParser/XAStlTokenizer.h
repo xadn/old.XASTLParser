@@ -10,6 +10,6 @@
 
 @interface XAStlTokenizer : NSObject
 
-- (void) tokenize;
+- (void) tokenize:(NSData *)inData;
 
 @end
