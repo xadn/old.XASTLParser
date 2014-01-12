@@ -15,19 +15,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
     NSLog(@"hello world");
-//    
+    tokenize();
+
+    
 //    NSString *stl = [NSString
 //                     stringWithContentsOfFile:@"/Users/andy/code/StlParser/StlParser/slotted_disk.stl"
 //                     encoding:NSASCIIStringEncoding
 //                     error:NULL];
-    
-    tokenize();
-    
-//    echotest();
-    
-//    NSLog(stl);
 }
 
 @end

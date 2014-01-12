@@ -43,22 +43,8 @@
 %% write data;
 // %% this just fixes our syntax highlighting...
 
-#define BUFSIZE 128
-
 int tokenize(void)
 {
-    static char buf[BUFSIZE];
-	int cs, act, have = 0, curline = 1;
-	char *ts, *te = 0;
-	int done = 0;
-    
-    char *p = buf + have, *pe, *eof = 0;
-    int len, space = BUFSIZE - have;
-
     printf("hello tokenizerRRRRRR!\n");
-    
-    %% write init;
-    %% write exec;
-
     return 0;
 }
