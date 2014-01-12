@@ -1,15 +1,14 @@
 %%{
- 
   machine stl_lexer;
 
   vertex      = 'vertex';
   endsolid    = 'endsolid';
   endfacet    = 'endfacet';
   endloop     = 'endloop';
-  solid       = 'solid' ?[a-zA-Z][a-zA-Z_]*;
-  facet       = 'facet '[a-zA-Z][a-zA-Z_]*;
+  solid       = 'solid' ?alnum*;
+  facet       = 'facet 'alnum*;
   outerloop   = 'outer loop';
-  float       = ('+'|'-')?[0-9]+'.'[0-9]+('e'('+'|'-')[0-9]+)?;
+  float       = ('+'|'-')?digit+'.'digit+('e'('+'|'-')digit+)?;
   
   main := |*
   
@@ -42,7 +41,12 @@
     };
     
     float => {
-        NSLog(@"float");
+        char subbuff[100];
+        long length = te - ts;
+        memcpy( subbuff, ts, length );
+        subbuff[99] = '\0';
+        NSString *str = [[NSString alloc] initWithUTF8String:subbuff];
+        NSLog(@"float: %f", [str floatValue]);
     };
 
     space;
