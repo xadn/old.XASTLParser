@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A12DD7F6188335E700AD8E78 /* tokenizer.rl in Resources */ = {isa = PBXBuildFile; fileRef = A12DD7F5188335E700AD8E78 /* tokenizer.rl */; };
-		A12DD7F9188338E400AD8E78 /* tokenizer.rl in Sources */ = {isa = PBXBuildFile; fileRef = A12DD7F5188335E700AD8E78 /* tokenizer.rl */; };
+		A12DD7FE18833A6E00AD8E78 /* XAStlTokenizer.m.rl in Resources */ = {isa = PBXBuildFile; fileRef = A12DD7FD18833A6E00AD8E78 /* XAStlTokenizer.m.rl */; };
+		A12DD7FF18833A8500AD8E78 /* XAStlTokenizer.m.rl in Sources */ = {isa = PBXBuildFile; fileRef = A12DD7FD18833A6E00AD8E78 /* XAStlTokenizer.m.rl */; };
 		A15ECC251883163D008BE50E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A15ECC241883163D008BE50E /* Cocoa.framework */; };
 		A15ECC2F1883163D008BE50E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A15ECC2D1883163D008BE50E /* InfoPlist.strings */; };
 		A15ECC311883163D008BE50E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A15ECC301883163D008BE50E /* main.m */; };
@@ -30,9 +30,9 @@
 			fileType = pattern.proxy;
 			isEditable = 1;
 			outputFiles = (
-				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).c",
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE)",
 			);
-			script = "echo \"$DERIVED_FILES_DIR\" &> /Users/andy/code/StlParser/StlParser/output.txt\n/usr/local/bin/ragel $INPUT_FILE_PATH -s -o $DERIVED_FILES_DIR/$INPUT_FILE_BASE.c";
+			script = "/usr/local/bin/ragel $INPUT_FILE_PATH -s -o $DERIVED_FILES_DIR/$INPUT_FILE_BASE";
 		};
 /* End PBXBuildRule section */
 
@@ -47,7 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A12DD7F5188335E700AD8E78 /* tokenizer.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tokenizer.rl; sourceTree = "<group>"; };
+		A12DD7FA188339E400AD8E78 /* XAStlTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAStlTokenizer.h; sourceTree = "<group>"; };
+		A12DD7FD18833A6E00AD8E78 /* XAStlTokenizer.m.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XAStlTokenizer.m.rl; sourceTree = "<group>"; };
 		A15ECC211883163D008BE50E /* StlParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StlParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15ECC241883163D008BE50E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A15ECC271883163D008BE50E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -67,7 +68,6 @@
 		A15ECC4A1883163D008BE50E /* StlParserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StlParserTests-Info.plist"; sourceTree = "<group>"; };
 		A15ECC4C1883163D008BE50E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A15ECC4E1883163D008BE50E /* StlParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StlParserTests.m; sourceTree = "<group>"; };
-		A15ECC6018832189008BE50E /* tokenizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tokenizer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,13 +133,13 @@
 		A15ECC2A1883163D008BE50E /* StlParser */ = {
 			isa = PBXGroup;
 			children = (
-				A12DD7F5188335E700AD8E78 /* tokenizer.rl */,
 				A15ECC361883163D008BE50E /* XAAppDelegate.h */,
 				A15ECC371883163D008BE50E /* XAAppDelegate.m */,
 				A15ECC391883163D008BE50E /* MainMenu.xib */,
 				A15ECC3C1883163D008BE50E /* Images.xcassets */,
 				A15ECC2B1883163D008BE50E /* Supporting Files */,
-				A15ECC6018832189008BE50E /* tokenizer.h */,
+				A12DD7FA188339E400AD8E78 /* XAStlTokenizer.h */,
+				A12DD7FD18833A6E00AD8E78 /* XAStlTokenizer.m.rl */,
 			);
 			path = StlParser;
 			sourceTree = "<group>";
@@ -252,11 +252,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A12DD7FE18833A6E00AD8E78 /* XAStlTokenizer.m.rl in Resources */,
 				A15ECC2F1883163D008BE50E /* InfoPlist.strings in Resources */,
 				A15ECC3D1883163D008BE50E /* Images.xcassets in Resources */,
 				A15ECC351883163D008BE50E /* Credits.rtf in Resources */,
 				A15ECC3B1883163D008BE50E /* MainMenu.xib in Resources */,
-				A12DD7F6188335E700AD8E78 /* tokenizer.rl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A12DD7F9188338E400AD8E78 /* tokenizer.rl in Sources */,
+				A12DD7FF18833A8500AD8E78 /* XAStlTokenizer.m.rl in Sources */,
 				A15ECC311883163D008BE50E /* main.m in Sources */,
 				A15ECC381883163D008BE50E /* XAAppDelegate.m in Sources */,
 			);

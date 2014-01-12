@@ -7,8 +7,8 @@
 //
 
 
+#import "XAStlTokenizer.h"
 #import "XAAppDelegate.h"
-#import "tokenizer.h"
 
 
 @implementation XAAppDelegate
@@ -16,8 +16,9 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     NSLog(@"hello world");
-    tokenize();
 
+    XAStlTokenizer *tokenizer = [XAStlTokenizer alloc];
+    [tokenizer tokenize];
     
 //    NSString *stl = [NSString
 //                     stringWithContentsOfFile:@"/Users/andy/code/StlParser/StlParser/slotted_disk.stl"

@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include "tokenizer.h"
-
 %%{
  
   machine simple_lexer;
@@ -41,10 +38,23 @@
 }%%
  
 %% write data;
-// %% this just fixes our syntax highlighting...
 
-int tokenize(void)
+// %% Objective-C goes here
+//
+//  XAStlTokenizer.m
+//  StlParser
+//
+//  Created by andy on 1/12/14.
+//  Copyright (c) 2014 xadn. All rights reserved.
+//
+
+#import "XAStlTokenizer.h"
+
+@implementation XAStlTokenizer
+
+- (void) tokenize
 {
-    printf("hello tokenizerRRRRRR!\n");
-    return 0;
+    NSLog(@"tokenize!");
 }
+
+@end
