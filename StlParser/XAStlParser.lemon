@@ -4,8 +4,8 @@
 %left DIVIDE TIMES.
 
 %include {
-    #include <assert.h>
-    #include "XAStlParserIncludes.h"
+    #import <assert.h>
+    #import "XAStlParserIncludes.h"
     #import "XAStlParser.h"
 }
 
