@@ -7,15 +7,18 @@
 
 %include {
     #include <assert.h>
+    #include "XAStlParserIncludes.h"
     #import "XAStlParser.h"
 }
 
 %syntax_error {
-    NSLog(@"syntax error");
+    printf("syntax error");
+//    NSLog(@"syntax error");
 }
 
 program ::= expr(A). {
-    NSLog(@"hello parser!: %f", A);
+    printf("hello parser: %f", A);
+//    NSLog(@"hello parser!: %f", A);
 }
 
 expr(A) ::= OPENP expr(B) CLOSEP. { A = (B); }

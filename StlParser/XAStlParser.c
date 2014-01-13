@@ -4,11 +4,11 @@
 /* First off, code is included that follows the "include" declaration
 ** in the input grammar file. */
 #include <stdio.h>
-#line 6 "XAStlParser.y"
+#line 8 "XAStlParser.y"
 
-    #include <iostream>
-    #include <cassert>
-    #include "parser.h"
+    #include <assert.h>
+    #include "XAStlParserIncludes.h"
+    #import "XAStlParser.h"
 #line 13 "XAStlParser.c"
 /* Next is all token values, in a form suitable for use by makeheaders.
 ** This section will be null unless lemon is run with the -m switch.
@@ -643,39 +643,42 @@ static void yy_reduce(
   **     break;
   */
       case 0: /* program ::= expr */
-#line 16 "XAStlParser.y"
-{ std::cout << yymsp[0].minor.yy0 << std::endl; }
-#line 649 "XAStlParser.c"
+#line 19 "XAStlParser.y"
+{
+    printf("hello parser: %f", yymsp[0].minor.yy0);
+//    NSLog(@"hello parser!: %f", yymsp[0].minor.yy0);
+}
+#line 652 "XAStlParser.c"
         break;
       case 1: /* expr ::= OPENP expr CLOSEP */
-#line 18 "XAStlParser.y"
+#line 24 "XAStlParser.y"
 { yygotominor.yy0 = (yymsp[-1].minor.yy0); }
-#line 654 "XAStlParser.c"
+#line 657 "XAStlParser.c"
         break;
       case 2: /* expr ::= expr PLUS expr */
-#line 19 "XAStlParser.y"
+#line 25 "XAStlParser.y"
 { yygotominor.yy0 = yymsp[-2].minor.yy0 + yymsp[0].minor.yy0; }
-#line 659 "XAStlParser.c"
+#line 662 "XAStlParser.c"
         break;
       case 3: /* expr ::= expr DIVIDE expr */
-#line 20 "XAStlParser.y"
+#line 26 "XAStlParser.y"
 { yygotominor.yy0 = yymsp[-2].minor.yy0 / yymsp[0].minor.yy0; }
-#line 664 "XAStlParser.c"
+#line 667 "XAStlParser.c"
         break;
       case 4: /* expr ::= expr TIMES expr */
-#line 21 "XAStlParser.y"
+#line 27 "XAStlParser.y"
 { yygotominor.yy0 = yymsp[-2].minor.yy0 * yymsp[0].minor.yy0; }
-#line 669 "XAStlParser.c"
+#line 672 "XAStlParser.c"
         break;
       case 5: /* expr ::= expr MINUS expr */
-#line 22 "XAStlParser.y"
+#line 28 "XAStlParser.y"
 { yygotominor.yy0 = yymsp[-2].minor.yy0 - yymsp[0].minor.yy0; }
-#line 674 "XAStlParser.c"
+#line 677 "XAStlParser.c"
         break;
       case 6: /* expr ::= DOUBLE */
-#line 23 "XAStlParser.y"
+#line 29 "XAStlParser.y"
 { yygotominor.yy0 = yymsp[0].minor.yy0; }
-#line 679 "XAStlParser.c"
+#line 682 "XAStlParser.c"
         break;
       default:
         break;
@@ -737,10 +740,11 @@ static void yy_syntax_error(
 ){
   ParseARG_FETCH;
 #define TOKEN (yyminor.yy0)
-#line 12 "XAStlParser.y"
+#line 14 "XAStlParser.y"
 
-    std::cout << "Syntax error." << std::endl;
-#line 744 "XAStlParser.c"
+    printf("syntax error");
+//    NSLog(@"syntax error");
+#line 748 "XAStlParser.c"
   ParseARG_STORE; /* Suppress warning about unused %extra_argument variable */
 }
 

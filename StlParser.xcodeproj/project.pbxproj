@@ -20,6 +20,8 @@
 		A15ECC451883163D008BE50E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A15ECC241883163D008BE50E /* Cocoa.framework */; };
 		A15ECC4D1883163D008BE50E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A15ECC4B1883163D008BE50E /* InfoPlist.strings */; };
 		A15ECC4F1883163D008BE50E /* StlParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A15ECC4E1883163D008BE50E /* StlParserTests.m */; };
+		A17EAF361883796600C0C394 /* XAStlParser.c in Sources */ = {isa = PBXBuildFile; fileRef = A17EAF351883796600C0C394 /* XAStlParser.c */; };
+		A17EAF3818837D3500C0C394 /* XAStlParser.h in Sources */ = {isa = PBXBuildFile; fileRef = A17EAF3018836CB800C0C394 /* XAStlParser.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -68,6 +70,10 @@
 		A15ECC4A1883163D008BE50E /* StlParserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StlParserTests-Info.plist"; sourceTree = "<group>"; };
 		A15ECC4C1883163D008BE50E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A15ECC4E1883163D008BE50E /* StlParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StlParserTests.m; sourceTree = "<group>"; };
+		A17EAF2D18836B9100C0C394 /* XAStlParser.y */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = XAStlParser.y; sourceTree = "<group>"; };
+		A17EAF3018836CB800C0C394 /* XAStlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAStlParser.h; sourceTree = "<group>"; };
+		A17EAF351883796600C0C394 /* XAStlParser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = XAStlParser.c; sourceTree = "<group>"; };
+		A17EAF3918837E4D00C0C394 /* XAStlParserIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAStlParserIncludes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,10 @@
 			children = (
 				A15ECC361883163D008BE50E /* XAAppDelegate.h */,
 				A15ECC371883163D008BE50E /* XAAppDelegate.m */,
+				A17EAF3918837E4D00C0C394 /* XAStlParserIncludes.h */,
+				A17EAF351883796600C0C394 /* XAStlParser.c */,
+				A17EAF3018836CB800C0C394 /* XAStlParser.h */,
+				A17EAF2D18836B9100C0C394 /* XAStlParser.y */,
 				A15ECC391883163D008BE50E /* MainMenu.xib */,
 				A15ECC3C1883163D008BE50E /* Images.xcassets */,
 				A15ECC2B1883163D008BE50E /* Supporting Files */,
@@ -275,6 +285,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17EAF3818837D3500C0C394 /* XAStlParser.h in Sources */,
+				A17EAF361883796600C0C394 /* XAStlParser.c in Sources */,
 				A12DD7FF18833A8500AD8E78 /* XAStlTokenizer.m.rl in Sources */,
 				A15ECC311883163D008BE50E /* main.m in Sources */,
 				A15ECC381883163D008BE50E /* XAAppDelegate.m in Sources */,
