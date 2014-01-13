@@ -1,5 +1,3 @@
-//lemon -q XAStlParser.y && mv XAStlParser.c XAStlParser.m
-
 %token_type {double}
 
 %left PLUS MINUS.
@@ -12,13 +10,11 @@
 }
 
 %syntax_error {
-    printf("syntax error");
-//    NSLog(@"syntax error");
+    NSLog(@"syntax error");
 }
 
 program ::= expr(A). {
-    printf("hello parser: %f", A);
-//    NSLog(@"hello parser!: %f", A);
+    NSLog(@"hello nslog!: %f", A);
 }
 
 expr(A) ::= OPENP expr(B) CLOSEP. { A = (B); }
