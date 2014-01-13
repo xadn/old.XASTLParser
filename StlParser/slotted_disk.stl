@@ -629,6 +629,7 @@ solid DiskBase
          vertex 4.995945e-001 -2.013297e-002 -8.000000e-002
       endloop
    endfacet
+   
    facet normal 9.999130e-001 1.319381e-002 0.000000e+000
       outer loop
          vertex 4.995945e-001 -2.013297e-002 -4.000000e-002
@@ -636,6 +637,7 @@ solid DiskBase
          vertex 4.963869e-001 6.000000e-002 -4.000000e-002
       endloop
    endfacet
+   
    facet normal 9.977564e-001 6.694920e-002 0.000000e+000
       outer loop
          vertex 4.963869e-001 6.000000e-002 -4.000000e-002

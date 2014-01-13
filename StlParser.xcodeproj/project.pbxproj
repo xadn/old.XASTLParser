@@ -153,9 +153,9 @@
 				A15ECC371883163D008BE50E /* XAAppDelegate.m */,
 				A17EAF3918837E4D00C0C394 /* XAStlParserIncludes.h */,
 				A17EAF3D1883843000C0C394 /* XAStlParser.lemon */,
-				A15ECC391883163D008BE50E /* MainMenu.xib */,
 				A12DD7FA188339E400AD8E78 /* XAStlTokenizer.h */,
 				A12DD7FD18833A6E00AD8E78 /* XAStlTokenizer.m.rl */,
+				A15ECC391883163D008BE50E /* MainMenu.xib */,
 				A15ECC3C1883163D008BE50E /* Images.xcassets */,
 				A15ECC2B1883163D008BE50E /* Supporting Files */,
 			);

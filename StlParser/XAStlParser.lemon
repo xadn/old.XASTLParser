@@ -1,8 +1,5 @@
 %token_type {double}
 
-%left PLUS MINUS.
-%left DIVIDE TIMES.
-
 %include {
     #import <assert.h>
     #import "XAStlParserIncludes.h"
@@ -10,17 +7,40 @@
 }
 
 %syntax_error {
-    NSLog(@"syntax error");
+    NSLog(@"=== SYNTAX ERROR ==");
 }
 
-program ::= expr(A). {
-    NSLog(@"hello nslog!: %f", A);
+program ::= solid .
+{
+    NSLog(@"hello lemon!");
 }
 
-expr(A) ::= OPENP expr(B) CLOSEP. { A = (B); }
-expr(A) ::= expr(B) PLUS expr(C). { A = B + C; }
-expr(A) ::= expr(B) DIVIDE expr(C). { A = B / C; }
-expr(A) ::= expr(B) TIMES expr(C). { A = B * C; }
-expr(A) ::= expr(B) MINUS expr(C). { A = B - C; }
-expr(A) ::= DOUBLE(B). { A = B; }
+solid ::= SOLID facetlist ENDSOLID .
+{
+    NSLog(@"p_solid");
+}
 
+facetlist ::= facet facetlist .
+{
+    NSLog(@"p_facetlist");
+}
+
+facet ::= FACET vector outerloop ENDFACET .
+{
+    NSLog(@"p_facet");
+}
+
+outerloop ::= OUTERLOOP vertex vertex vertex ENDLOOP .
+{
+    NSLog(@"p_outerloop");
+}
+
+vertex ::= VERTEX vector .
+{
+    NSLog(@"p_vertex");
+}
+
+vector ::= FLOAT FLOAT FLOAT .
+{
+    NSLog(@"p_vector");
+}

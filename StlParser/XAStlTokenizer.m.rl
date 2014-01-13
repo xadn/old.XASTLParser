@@ -7,37 +7,44 @@
   endloop     = 'endloop';
   facet       = 'facet normal';
   outerloop   = 'outer loop';
-  solid       = 'solid' ?alnum*;
+  solid       = 'solid DiskBase';
   float       = ('+'|'-')?digit+'.'digit+('e'('+'|'-')digit+)?;
   
   main := |*
   
     vertex => {
-        NSLog(@"vertex");
+            NSLog(@"t_v");
+        Parse(parser, VERTEX, 0);
     };
     
     endsolid => {
-        NSLog(@"endsolid");
+            NSLog(@"t_es");
+        Parse(parser, ENDSOLID, 0);
     };
 
     endfacet => {
-        NSLog(@"endfacet");
+            NSLog(@"t_ef");
+        Parse(parser, ENDFACET, 0);
     };
     
     endloop => {
-        NSLog(@"endloop");
+            NSLog(@"t_el");
+        Parse(parser, ENDLOOP, 0);
     };
     
     facet => {
-        NSLog(@"facet");
+        NSLog(@"t_f");
+        Parse(parser, FACET, 0);
     };
 
     outerloop => { 
-        NSLog(@"outerloop");
+            NSLog(@"t_ol");
+        Parse(parser, OUTERLOOP, 0);
     };
 
     solid => {
-        NSLog(@"solid");
+        NSLog(@"t_s");
+        Parse(parser, SOLID, 0);
     };
     
     float => {
@@ -47,7 +54,8 @@
                                             length:length 
                                             encoding:NSASCIIStringEncoding 
                                             freeWhenDone:false];
-        NSLog(@"float: %f", [str floatValue]);
+        NSLog(@"t_fp: %f", [str floatValue]);
+        Parse(parser, FLOAT, [str floatValue]);
     };
 
     space;
@@ -68,13 +76,19 @@
 //  Copyright (c) 2014 xadn. All rights reserved.
 //
 
+#import "XAStlParserIncludes.h"
+#import "XAStlParser.h"
 #import "XAStlTokenizer.h"
 
 @implementation XAStlTokenizer
 
 - (void) tokenize:(NSData *)inData
 {
+// #632
+//facet normal 9.999130e-001 1.319381e-002 0.000000e+000
     NSLog(@"STARTING TOKENIZATION!");
+    
+    void* parser = ParseAlloc(malloc);
 
     int   cs    = 0;                        // current state
     char *p     = (char *)[inData bytes];   // data pointer
@@ -86,7 +100,9 @@
 
     %% write init;
     %% write exec;
-    
+
+    ParseFree(parser, free);
+
     NSLog(@"TOKENIZATION COMPLETE!");
 }
 
