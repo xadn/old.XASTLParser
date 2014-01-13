@@ -5,9 +5,9 @@
   endsolid    = 'endsolid';
   endfacet    = 'endfacet';
   endloop     = 'endloop';
-  solid       = 'solid' ?alnum*;
-  facet       = 'facet 'alnum*;
+  facet       = 'facet normal';
   outerloop   = 'outer loop';
+  solid       = 'solid' ?alnum*;
   float       = ('+'|'-')?digit+'.'digit+('e'('+'|'-')digit+)?;
   
   main := |*
@@ -27,11 +27,7 @@
     endloop => {
         NSLog(@"endloop");
     };
-
-    solid => {
-        NSLog(@"solid");
-    };
-
+    
     facet => {
         NSLog(@"facet");
     };
@@ -39,13 +35,18 @@
     outerloop => { 
         NSLog(@"outerloop");
     };
+
+    solid => {
+        NSLog(@"solid");
+    };
     
     float => {
-        char subbuff[100];
         long length = te - ts;
-        memcpy( subbuff, ts, length );
-        subbuff[99] = '\0';
-        NSString *str = [[NSString alloc] initWithUTF8String:subbuff];
+
+        NSString *str = [[NSString alloc] initWithBytesNoCopy:(void *)ts 
+                                            length:length 
+                                            encoding:NSASCIIStringEncoding 
+                                            freeWhenDone:false];
         NSLog(@"float: %f", [str floatValue]);
     };
 
