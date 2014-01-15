@@ -1,4 +1,9 @@
-%token_type {double}
+%token_type { float }
+%type facet { float** }
+%type outerloop { float** }
+%type vertex { float* }
+%type vector { float* }
+%type FLOAT { float }
 
 %include {
     #import <assert.h>
@@ -25,22 +30,24 @@ facetlist ::= facet facetlist .
     NSLog(@"p_facetlist");
 }
 
-facet ::= FACET vector outerloop ENDFACET .
+facet(A) ::= FACET vector outerloop(B) ENDFACET .
 {
-    NSLog(@"p_facet");
+    A = B;
 }
 
-outerloop ::= OUTERLOOP vertex vertex vertex ENDLOOP .
+outerloop(A) ::= OUTERLOOP vertex(B) vertex(C) vertex(D) ENDLOOP .
 {
-    NSLog(@"p_outerloop");
+    float *a[3] = { B, C, D };
+    A = a;
 }
 
-vertex ::= VERTEX vector .
+vertex(A) ::= VERTEX vector(B) .
 {
-    NSLog(@"p_vertex");
+    A = B;
 }
 
-vector ::= FLOAT FLOAT FLOAT .
+vector(A) ::= FLOAT(B) FLOAT(C) FLOAT(D) .
 {
-    NSLog(@"p_vector");
+    float a[3] = { B, C, D };
+    A = a;
 }

@@ -11,6 +11,6 @@
 
 void *ParseAlloc(void *(*mallocProc)(size_t));
 void ParseFree(void *p, void (*freeProc)(void*));
-void Parse(void *yyp, int yymajor, double yyminor);
+void Parse(void *yyp, int yymajor, float yyminor);
 
 #endif
