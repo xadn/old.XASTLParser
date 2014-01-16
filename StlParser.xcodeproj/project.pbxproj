@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A12DD7FE18833A6E00AD8E78 /* XAStlTokenizer.m.rl in Resources */ = {isa = PBXBuildFile; fileRef = A12DD7FD18833A6E00AD8E78 /* XAStlTokenizer.m.rl */; };
 		A12DD7FF18833A8500AD8E78 /* XAStlTokenizer.m.rl in Sources */ = {isa = PBXBuildFile; fileRef = A12DD7FD18833A6E00AD8E78 /* XAStlTokenizer.m.rl */; };
+		A14B4A561886449600BA4F39 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14B4A551886449600BA4F39 /* SceneKit.framework */; };
+		A14B4A58188644BC00BA4F39 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14B4A57188644BC00BA4F39 /* QuartzCore.framework */; };
 		A15ECC251883163D008BE50E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A15ECC241883163D008BE50E /* Cocoa.framework */; };
 		A15ECC2F1883163D008BE50E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A15ECC2D1883163D008BE50E /* InfoPlist.strings */; };
 		A15ECC311883163D008BE50E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A15ECC301883163D008BE50E /* main.m */; };
@@ -63,6 +65,8 @@
 /* Begin PBXFileReference section */
 		A12DD7FA188339E400AD8E78 /* XAStlTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAStlTokenizer.h; sourceTree = "<group>"; };
 		A12DD7FD18833A6E00AD8E78 /* XAStlTokenizer.m.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XAStlTokenizer.m.rl; sourceTree = "<group>"; };
+		A14B4A551886449600BA4F39 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		A14B4A57188644BC00BA4F39 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A15ECC211883163D008BE50E /* StlParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StlParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15ECC241883163D008BE50E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A15ECC271883163D008BE50E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -91,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14B4A58188644BC00BA4F39 /* QuartzCore.framework in Frameworks */,
+				A14B4A561886449600BA4F39 /* SceneKit.framework in Frameworks */,
 				A15ECC251883163D008BE50E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +135,8 @@
 		A15ECC231883163D008BE50E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A14B4A57188644BC00BA4F39 /* QuartzCore.framework */,
+				A14B4A551886449600BA4F39 /* SceneKit.framework */,
 				A15ECC241883163D008BE50E /* Cocoa.framework */,
 				A15ECC431883163D008BE50E /* XCTest.framework */,
 				A15ECC261883163D008BE50E /* Other Frameworks */,

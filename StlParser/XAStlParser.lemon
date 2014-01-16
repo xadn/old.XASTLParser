@@ -1,14 +1,16 @@
 %token_type { float }
-%type facet { float** }
-%type outerloop { float** }
-%type vertex { float* }
-%type vector { float* }
-%type FLOAT { float }
+%type facetlist { __unsafe_unretained NSMutableArray* }
+%type facet { int }
+%type outerloop { SCNVector3* }
+%type vertex { SCNVector3 }
+%type vector { SCNVector3 }
+%type FLOAT { CGFloat }
 
 %include {
     #import <assert.h>
     #import "XAStlParserIncludes.h"
     #import "XAStlParser.h"
+    #import <SceneKit/SceneKit.h>
 }
 
 %syntax_error {
@@ -32,12 +34,12 @@ facetlist ::= facet facetlist .
 
 facet(A) ::= FACET vector outerloop(B) ENDFACET .
 {
-    A = B;
+    A = 1;
 }
 
 outerloop(A) ::= OUTERLOOP vertex(B) vertex(C) vertex(D) ENDLOOP .
 {
-    float *a[3] = { B, C, D };
+    SCNVector3 a[3] = { B, C, D };
     A = a;
 }
 
@@ -48,6 +50,5 @@ vertex(A) ::= VERTEX vector(B) .
 
 vector(A) ::= FLOAT(B) FLOAT(C) FLOAT(D) .
 {
-    float a[3] = { B, C, D };
-    A = a;
+    A = SCNVector3Make(B, C, D);
 }
